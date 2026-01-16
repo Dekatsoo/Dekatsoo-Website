@@ -96,7 +96,7 @@ export default function App() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-5xl md:text-6xl font-extrabold tracking-tight"
           >
             Aditya Vikram Singh
@@ -106,7 +106,7 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
-            transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
             className="mt-6 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
           >
             A passionate student excelling in chess, robotics, leadership, and innovation.
@@ -117,7 +117,7 @@ export default function App() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
-            transition={{ duration: 0.4, ease: "easeOut", delay: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
             className="mt-10 flex justify-center gap-6 flex-wrap"
           >
             <a
@@ -150,7 +150,7 @@ export default function App() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
-              transition={{ duration: 0.4, ease: "easeOut", delay: i * 0.05 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.05 }}
               className={`rounded-2xl p-6 bg-white dark:bg-zinc-900 shadow-lg cursor-pointer select-none transition transform hover:scale-[1.02] ${
                 active === i
                   ? "ring-2 ring-indigo-500 dark:ring-indigo-400 shadow-2xl"
@@ -163,11 +163,21 @@ export default function App() {
               </div>
 
               {active === i && (
-                <ul className="mt-4 space-y-2 text-gray-700 dark:text-gray-300">
-                  {sec.details.map((d, idx) => (
-                    <li key={idx}>• {d}</li>
-                  ))}
-                </ul>
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  transition={{
+                    duration: 0.6,
+                    ease: [0.4, 0, 0.2, 1],
+                  }}
+                  className="overflow-hidden"
+                >
+                  <ul className="mt-4 space-y-2 text-gray-700 dark:text-gray-300">
+                    {sec.details.map((d, idx) => (
+                      <li key={idx}>• {d}</li>
+                    ))}
+                  </ul>
+                </motion.div>
               )}
             </motion.div>
           ))}
