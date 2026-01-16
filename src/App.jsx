@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Moon,
   Sun,
@@ -95,7 +95,6 @@ export default function App() {
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-5xl md:text-6xl font-extrabold tracking-tight"
           >
@@ -105,7 +104,6 @@ export default function App() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
             className="mt-6 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
           >
@@ -116,7 +114,6 @@ export default function App() {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
             className="mt-10 flex justify-center gap-6 flex-wrap"
           >
@@ -149,7 +146,6 @@ export default function App() {
               onClick={() => setActive(active === i ? null : i)}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
               transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.05 }}
               className={`rounded-2xl p-6 bg-white dark:bg-zinc-900 shadow-lg cursor-pointer select-none transition transform hover:scale-[1.02] ${
                 active === i
@@ -162,23 +158,27 @@ export default function App() {
                 <h3 className="text-2xl font-semibold">{sec.title}</h3>
               </div>
 
-              {active === i && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  transition={{
-                    duration: 0.6,
-                    ease: [0.4, 0, 0.2, 1],
-                  }}
-                  className="overflow-hidden"
-                >
-                  <ul className="mt-4 space-y-2 text-gray-700 dark:text-gray-300">
-                    {sec.details.map((d, idx) => (
-                      <li key={idx}>• {d}</li>
-                    ))}
-                  </ul>
-                </motion.div>
-              )}
+              <AnimatePresence>
+                {active === i && (
+                  <motion.div
+                    key="content"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{
+                      duration: 0.6,
+                      ease: [0.4, 0, 0.2, 1],
+                    }}
+                    className="overflow-hidden"
+                  >
+                    <ul className="mt-4 space-y-2 text-gray-700 dark:text-gray-300">
+                      {sec.details.map((d, idx) => (
+                        <li key={idx}>• {d}</li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           ))}
         </div>
@@ -206,3 +206,4 @@ export default function App() {
     </div>
   );
 }
+
