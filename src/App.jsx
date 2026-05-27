@@ -64,7 +64,7 @@ export default function App() {
       details: [
         "Represented USA at JSGC MUN – Verbal Mention",
         "IAYP Volunteer – taught Maths & English",
-        "Operations Manager – CMS Alumni Meet",
+        "CMS Alumni Meet – Operations Manager",
         "NASA Space Apps Challenge – 6th place",
         "Farewell 2025 – 2026 Batch — Operations Manager, Video Editor & Creative Director",
       ],
@@ -108,8 +108,8 @@ export default function App() {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
             className="mt-6 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
           >
-            A passionate student excelling in chess, robotics, leadership, and innovation.
-            Building a strong future through technology, strategy, and impact.
+            Passionate student skilled in chess, robotics, coding, and leadership.
+            Driven by innovation, strategic thinking, and building impactful technology.
           </motion.p>
 
           <motion.div
