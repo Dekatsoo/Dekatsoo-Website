@@ -66,6 +66,7 @@ export default function App() {
         "IAYP Volunteer – taught Maths & English",
         "Operations Manager – CMS Alumni Meet",
         "NASA Space Apps Challenge – 6th place",
+        "Farewell 2025 – 2026 Batch — Operations Manager, Video Editor & Creative Director",
       ],
     },
   ];
