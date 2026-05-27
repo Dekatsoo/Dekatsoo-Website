@@ -64,7 +64,7 @@ export default function App() {
       details: [
         "Represented USA at JSGC MUN – Verbal Mention",
         "IAYP Volunteer – taught Maths & English",
-        "CMS Alumni Meet – Operations Manager",
+        "CMS Alumni Meet – Event Operations Lead",
         "NASA Space Apps Challenge – 6th place",
         "Farewell 2025 – 2026 Batch — Operations Manager, Video Editor & Creative Director",
       ],
